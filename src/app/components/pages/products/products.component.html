@@ -1,0 +1,17 @@
+<main class="pt-5">
+    <div class="container">
+        <div class="row ">
+            <div *ngFor="let p of products; let i = index" class="col-lg-2 mb-4">
+                <mat-card (click)="viewProduct(p.name, p.img, p.price, p.id)" class="example-card hover-effect rounded-10 ">
+                    <div [ngClass]="loading? 'skeleton-con' : ''" class="image-con border-bottom " mat-card-image>
+                        <img *ngIf="!loading" [src]="p?.img">
+                    </div>
+                    <mat-card-content>
+                        <h4>{{p?.name}}</h4>
+                        <p> &#8358;{{p?.price | number:'.2'}} </p>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</main>

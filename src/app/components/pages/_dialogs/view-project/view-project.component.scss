@@ -1,0 +1,51 @@
+:host ::ng-deep {
+    .mat-dialog-title {
+        background-color: #ffffff;
+        // margin: -24px -24px 0 -24px;
+        padding: 10px 20px 10px 20px !important;
+        z-index: 999;
+        color: #000;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        // border-top-left-radius: 10px;
+        h5 {
+            font-size: 20px !important;
+        }
+    }
+    .mat-dialog-content {
+        padding-top: 60px;
+        padding-bottom: 20px;
+        // height: 100vh !important;
+        min-height: 100vh;
+        overflow-y: auto !important;
+    }
+    .view-button {
+        border-radius: 60px;
+        font-size: 20px;
+        background-color: var( --appGreen);
+        color: #fff;
+        // &:hover {
+        //     cursor: pointer;
+        //     background-color: #fff !important;
+        //     color: var( --appGreen) !important;
+        //     text-decoration: none !important;
+        // }
+    }
+    h3 {
+        font-size: 23px;
+        font-weight: 500;
+    }
+    @media screen and (min-width: 767px) {
+        .mat-dialog-content {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+    }
+    @media screen and (max-width: 767px) {
+        .more-photo-holder {
+            height: 200px !important;
+        }
+    }
+}

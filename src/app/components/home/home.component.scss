@@ -1,0 +1,41 @@
+:host ::ng-deep {
+    main {
+        height: 100vh;
+        width: 100%;
+        // background-color: black;
+        // background-image: url('../../../assets/img/bg-one.jpeg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        justify-content: center;
+    }
+    .content {
+        h1 {
+            font-size: 30px;
+            text-align: center;
+        }
+        h3 {
+            color: var(--appBlue);
+            // font-weight: 500;
+        }
+        .box {
+            padding: 20px;
+        }
+        // p {
+        //     font-size: 20px;
+        //     line-height: 30px;
+        //     text-align: justify;
+        // }
+    }
+    @media screen and (max-width: 767px) {
+        .content {
+            h1 {
+                text-align: left !important;
+                font-size: 40px !important;
+            }
+        }
+        main {
+            padding-top: 150px;
+        }
+    }
+}
