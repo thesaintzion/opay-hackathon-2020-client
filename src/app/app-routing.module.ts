@@ -6,10 +6,13 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 const routes: Routes = [
   { path: '', component: HomeComponent},
   { path: '404', component: PageNotFoundComponent},
-  // { path: 'page', loadChildren: './components/pages/page.module#PageModule'},
   {
     path: 'page',
     loadChildren: () => import('./components/pages/page.module').then(m => m.PageModule)
+  },
+  {
+    path: 'admin',
+    loadChildren: () => import('./components/dashboard/dashboard.module').then(m => m.DashboardModule)
   },
   { path: '**', redirectTo: '/404', pathMatch: 'full'}
 ]

@@ -1,0 +1,20 @@
+<main>
+    <div class="container">
+
+        <nav class="d-flex justify-content-center">
+            <div>
+                <a mat-button class="w-100" routerLinkActive="app-green-bg  text-white" routerLink="/admin/transfer">
+                     Transfer</a>
+            </div>
+
+            <div class="ml-4">
+                <a mat-button class="w-100" routerLinkActive="app-green-bg text-white" routerLink="/admin/history">
+                    History </a>
+            </div>
+        </nav>
+
+        <div class="py-4">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</main>

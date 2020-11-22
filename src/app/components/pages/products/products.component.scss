@@ -5,10 +5,10 @@
         padding-bottom: 30px;
     }
     .mat-card {
-        // -webkit-box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
-        // box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
-        webkit-box-shadow: 0 0 3px 3px rgba(38, 49, 108, .06);
-        box-shadow: 0 0 3px 3px rgba(38, 49, 108, .06);
+        -webkit-box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
+        box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
+        // webkit-box-shadow: 0 0 3px 3px rgba(38, 49, 108, .06);
+        // box-shadow: 0 0 3px 3px rgba(38, 49, 108, .06);
         p {
             color: var(--appGreen);
         }

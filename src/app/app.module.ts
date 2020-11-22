@@ -7,12 +7,14 @@ import { HomeComponent } from './components/home/home.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './_shared/shared.module';
+import { DashboadLayoutComponent } from './components/dashboard/dashboad-layout/dashboad-layout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    DashboadLayoutComponent
   ],
   imports: [
  
