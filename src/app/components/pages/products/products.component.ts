@@ -113,9 +113,9 @@ loading = true;
       panelClass: ['animated','fadeInRight', 'faster', 'dialog-rounded-none'],
     });
   
-    dialogRef.afterClosed().subscribe(userType =>{
-     if(userType){ 
-      //  alert('We got it')
+    dialogRef.afterClosed().subscribe(res =>{
+      console.log(res);
+     if(res){ 
       this.pay(name, price, id);
       this.sharedService.openSnackBar('Processing..', 'CLOSE',9000000, 'bg-dark')
      }
@@ -132,18 +132,19 @@ pay(name, price, id){
       }
       this.apiService.pay(data).subscribe(
         res => {
-          setTimeout( () => {
-            this.sharedService.LOADING =  false;
-            console.log(res)
-            this.sharedService.openSnackBar('Payment successful!!', 'OK', 9000, 'bg-success')
-            }, 3000)
+          console.log(res);
+          if(res.cashierUrl){
+            window.location.href = res.cashierUrl;
+          }else{
+            this.sharedService.LOADING = false;
+            this.sharedService.openSnackBar('Something is not right..', 'OK', 5000, 'bg-danger');
+          }
         },
         err => {
-          setTimeout( () => {
             console.log(err)
             this.sharedService.LOADING =  false;
             this.sharedService.openSnackBar(err.error.message ? err.error.message : 'Oops..!! Something is not right.. please try later', 'OK', 9000, 'bg-danger')
-            }, 3000)
+           
         });
     }
   }
