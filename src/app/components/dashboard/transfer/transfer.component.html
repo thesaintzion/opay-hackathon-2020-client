@@ -1,3 +1,51 @@
-<main class="animated fadeInLeft faster">
-    <p>transfer works!</p>
+<main class="animated fadeInLeft faster bg-white">
+
+    <h1 class="text-center mt-3">Send Money</h1>
+
+    <div class="row">
+        <div class="col-lg-4 mx-auto">
+            <form [formGroup]="transferForm" (ngSubmit)="onFormSubmit()" class="form animated faster fadeInRight">
+
+                <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>Country</mat-label>
+                    <mat-select formControlName="countryCode" placeholder="Country" required>
+                        <mat-option (click)="getBanks(country?.code)" *ngFor="let country of countries" [value]="country?.code">{{country?.name}}</mat-option>
+                    </mat-select>
+                    <mat-hint class="text-center" *ngIf="submitted && f.country.errors?.required || (f.country?.errors && (f.country?.touched))" class="text-danger">Country is required</mat-hint>
+                </mat-form-field>
+
+                <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>Bank</mat-label>
+                    <mat-select formControlName="bankCode" placeholder="Bank" required>
+                        <mat-option *ngFor="let bank of banks" [value]="bank?.code">{{bank?.name}}</mat-option>
+                    </mat-select>
+                    <mat-hint class="text-center" *ngIf="submitted && f.bank.errors?.required || (f.bank?.errors && (f.bank?.touched))" class="text-danger">Bank is required</mat-hint>
+                </mat-form-field>
+
+                <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>Account Number</mat-label>
+                    <input type="number" (keyup)="validateBankAccount()" matInput formControlName="bankAccountNo" placeholder="Account Number" required>
+                </mat-form-field>
+
+                <p *ngIf="loading">Loading...</p>
+                <mat-form-field *ngIf="accountName" class="w-100" appearance="outline">
+                    <input matInput disabled class="app-green-color" [value]="accountName" required>
+                    <mat-icon class="app-green-color" matSuffix>done_outline</mat-icon>
+                </mat-form-field>
+
+
+
+
+                <button tabindex="-1" mat-raised-button class=" shadow-sm app-green-bg text-white rounded-60  w-100 mt-2  py-1">
+                SEND MONEY 
+                </button>
+
+                <pre>{{transferForm.value | json}}</pre>
+
+                <!-- <pre>{{banks | json}}</pre> -->
+                <!-- <pre>{{countries | json}}</pre> -->
+
+            </form>
+        </div>
+    </div>
 </main>

@@ -11,7 +11,7 @@
     </div>
 </div>
 <mat-dialog-content class="mt-0 bg-white  h-100">
-    <div *ngIf="!buyNow" class="animated faster fadeInLeft">
+    <div *ngIf="!buyNow">
         <h2 class="text-bold">&#8358;{{data?.price | number:'.2'}}</h2>
         <img class="w-100 mb-4   rounded-10 shadow-sm" [src]="data?.img">
         <!-- (click)="buyNow = true" -->

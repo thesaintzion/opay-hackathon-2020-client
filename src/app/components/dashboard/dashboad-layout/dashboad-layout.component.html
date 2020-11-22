@@ -1,18 +1,21 @@
 <main>
+    <!-- <h3>Dashboard</h3> -->
     <div class="container">
-
         <nav class="d-flex justify-content-center">
             <div>
                 <a mat-button class="w-100" routerLinkActive="app-green-bg  text-white" routerLink="/admin/transfer">
-                     Transfer</a>
+                    <mat-icon>link</mat-icon> Transfer
+                </a>
             </div>
 
             <div class="ml-4">
                 <a mat-button class="w-100" routerLinkActive="app-green-bg text-white" routerLink="/admin/history">
-                    History </a>
+                    <mat-icon>link</mat-icon> History </a>
             </div>
         </nav>
+    </div>
 
+    <div class="container bg-white py-2 shadow-sm">
         <div class="py-4">
             <router-outlet></router-outlet>
         </div>

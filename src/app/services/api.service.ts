@@ -28,4 +28,22 @@ pay(data: any){
   return this.http.post<any>(`${this.apiUrl}/product/pay`, data);
 }
 
+getCountries(){
+  return this.http.get<any>(`${this.apiUrl}/countries`);
+}
+
+getBanks(countryCode: any){
+  return this.http.get<any>(`${this.apiUrl}/banks?countryCode=${countryCode}`);
+}
+
+
+transfer(data: any){
+  return this.http.post<any>(`${this.apiUrl}/transfer`, data);
+}
+
+validateBankAccount(data: any){
+  return this.http.post<any>(`${this.apiUrl}/validate-bank-account`, data);
+}
+
+
 }

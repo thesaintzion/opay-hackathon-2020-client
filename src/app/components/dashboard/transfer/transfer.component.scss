@@ -1,0 +1,34 @@
+:host ::ng-deep {
+    h1 {
+        font-weight: 600;
+        font-size: 30px !important;
+    }
+    form {
+        /* Border */
+        .mat-form-field-appearance-outline .mat-form-field-outline {
+            color: transparent;
+            // background-color: red;
+            // background-color: var(--appRedLight);
+            background-color: #eee;
+            border-radius: 9px !important;
+        }
+        /* Font color */
+        input.mat-input-element {
+            // color: #fff !important;
+        }
+        textarea.mat-input-element {
+            // color: #fff !important;
+        }
+    }
+    @media screen and (min-width: 767px) {
+        .mat-dialog-content {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+    }
+    @media screen and (max-width: 767px) {
+        .more-photo-holder {
+            height: 200px !important;
+        }
+    }
+}
