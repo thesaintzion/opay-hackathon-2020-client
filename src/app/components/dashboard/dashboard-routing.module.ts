@@ -6,8 +6,9 @@ import { TransferComponent } from './transfer/transfer.component';
 
 const routes: Routes = [
   {path: '', component: DashboadLayoutComponent, children: [
-    {path: '',  redirectTo: '/admin/history', pathMatch: 'full'},
-    {path: 'history', component: TransactionsComponent},
+    // {path: '',  redirectTo: '/admin/history', pathMatch: 'full'},
+    {path: '',  redirectTo: '/admin/transfer', pathMatch: 'full'},
+    // {path: 'history', component: TransactionsComponent},
     {path: 'transfer', component: TransferComponent},
   ]},
 

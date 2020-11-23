@@ -1,7 +1,5 @@
 :host ::ng-deep {
     main {
-        min-height: 100vh;
-        // padding-top: 100px;
         background-color: var(--appGray);
     }
     @media (max-width: 767px) {}

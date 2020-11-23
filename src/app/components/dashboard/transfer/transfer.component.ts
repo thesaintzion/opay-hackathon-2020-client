@@ -15,15 +15,20 @@ export class TransferComponent implements OnInit {
   loading = false;
   accountName = ''
   accountNo = '';
+  success = false;
   
   constructor(private formBuilder: FormBuilder, private sharedService: SharedService, private apiService: ApiService ) {
     this.transferForm = this.formBuilder.group({
       bankAccountNo: ['', [Validators.required]],
       bankCode: ['', [Validators.required]],
-      countryCode: ['', [Validators.required]],
-      
+      countryCode: ['NG', [Validators.required]],
+      amount: ['', [Validators.required]],
+      reason: [''],
+      currency: ['NGN', [Validators.required]],
     })
    }
+
+  
 
    get f(){ return this.transferForm.controls}
 
@@ -32,7 +37,11 @@ export class TransferComponent implements OnInit {
      if(this.transferForm.invalid){
       this.sharedService.openSnackBar('Please fill in all fields', 'OK', 3000, 'bg-danger');
      }else{
+       if(this.accountName == ''){
+        this.sharedService.openSnackBar('Could not validate account number', 'OK', 3000, 'bg-danger');
+       }else{
         this.transfer();
+       }
      }
     
    }
@@ -48,7 +57,8 @@ export class TransferComponent implements OnInit {
       })
   }
 
-  getBanks(countryCode){
+  getBanks(){
+    let countryCode = 'NG';
     this.apiService.getBanks(countryCode).subscribe(
       res => {
           this.banks = res.banks;
@@ -62,15 +72,21 @@ export class TransferComponent implements OnInit {
   transfer(){
     this.sharedService.LOADING = true;
     let data = {
+      amount:  this.transferForm.value.amount,
+      currency: this.transferForm.value.currency,
+      name: this.accountName,
+      reason:  this.transferForm.value.reason,
       bankCode: this.transferForm.value.bankCode,
-      bankAccountNo: this.transferForm.value.bankAccountNo,
-      countryCode: this.transferForm.value. countryCode,
+      bankAccountNumber: this.transferForm.value.bankAccountNo,
+      country: this.transferForm.value.countryCode,
     }
     this.apiService.transfer(data).subscribe(
       res => {
+        this.transferForm.reset();
+        this.success = true;
           console.log(res);
           this.sharedService.LOADING = false;
-          this.sharedService.openSnackBar('Successful', 'OK', 3000, 'bg-success');
+          this.sharedService.openSnackBar('Transfer was successful', 'OK', 3000, 'bg-success');
       },
       err => {
           console.log(err);
@@ -102,6 +118,7 @@ export class TransferComponent implements OnInit {
   ngOnInit(): void {
     // this.getBanks();
     this.getCountries();
+    this.getBanks();
   }
 
 }
